@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>拼音注音台 · 声调标注</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="booterr" hidden>拼音库未加载：请确认 lib\pinyin-pro.js 存在，并用浏览器直接打开 index.html。</div>
+
+<header class="bar">
+  <div class="brand">
+    <span class="logo">拼</span>
+    <span class="brandtxt"><b>拼音注音台</b><small>输入汉字 → 上方自动生成带声调拼音</small></span>
+  </div>
+  <div class="actions">
+    <button id="btnPng" class="primary">导出 PNG</button>
+    <button id="btnCopyImg">复制图片</button>
+    <button id="btnHtml">导出 HTML</button>
+    <button id="btnPrint">打印 / PDF</button>
+    <button id="btnCopyPy">复制拼音</button>
+  </div>
+</header>
+
+<main>
+  <aside class="side">
+    <div class="group">
+      <div class="gtitle">字号</div>
+      <label class="row"><span>汉字字号</span><em id="vHan">46</em></label>
+      <input type="range" id="rngHan" min="20" max="110" step="1">
+      <label class="row"><span>拼音字号</span><em id="vPy">17</em></label>
+      <input type="range" id="rngPy" min="9" max="40" step="1">
+      <label class="row"><span>拼音与汉字间距</span><em id="vPyGap">4</em></label>
+      <input type="range" id="rngPyGap" min="0" max="22" step="1">
+      <label class="row"><span>字间距</span><em id="vGap">6</em></label>
+      <input type="range" id="rngGap" min="0" max="26" step="1">
+      <label class="row"><span>行距</span><em id="vLine">28</em></label>
+      <input type="range" id="rngLine" min="6" max="70" step="1">
+      <label class="row"><span>每行字数（0=自动）</span><em id="vCols">0</em></label>
+      <input type="range" id="rngCols" min="0" max="30" step="1">
+      <div class="row two">
+        <select id="selHanFont">
+          <option value="hei">汉字·黑体</option>
+          <option value="song">汉字·宋体</option>
+          <option value="kai">汉字·楷体</option>
+        </select>
+        <select id="selPyFont">
+          <option value="serif">拼音·衬线</option>
+          <option value="sans">拼音·无衬线</option>
+          <option value="mono">拼音·等宽</option>
+        </select>
+      </div>
+      <div class="row two">
+        <label class="col">拼音色<input type="color" id="inpPyColor"></label>
+        <label class="col">汉字色<input type="color" id="inpHanColor"></label>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="gtitle">声调</div>
+      <div class="seg" id="segTone">
+        <button data-tone="symbol" class="on">符号 ā</button>
+        <button data-tone="num">数字 a1</button>
+        <button data-tone="none">无声调</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="gtitle">显示</div>
+      <label class="chk"><input type="checkbox" id="chkHanzi" checked> 显示汉字</label>
+      <label class="chk"><input type="checkbox" id="chkPy" checked> 显示拼音</label>
+      <label class="chk"><input type="checkbox" id="chkPoly" checked> 标出多音字（点字可改读音）</label>
+      <label class="chk"><input type="checkbox" id="chkTrans"> PNG 透明背景</label>
+    </div>
+
+    <div class="group">
+      <div class="gtitle">自定义词表（每行：词语 拼音）</div>
+      <textarea id="dictBox" spellcheck="false" placeholder="重庆 chóng qìng&#10;长大 zhǎng dà&#10;也可以写数字调：重庆 chong2 qing4"></textarea>
+      <div class="row two" style="margin-top:6px">
+        <button id="btnDictSample">恢复内置词表</button>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="gtitle">内容</div>
+      <div class="row two">
+        <button id="btnSample">载入示例</button>
+        <button id="btnClear">清空</button>
+      </div>
+      <div class="stat" id="stat">字数 0 · 多音字 0</div>
+    </div>
+  </aside>
+
+  <section class="work">
+    <div class="editor">
+      <div class="editor-head"><span>输入区（直接打字 / 粘贴稿子）</span><span class="hint">Ctrl+Enter 重排 · Ctrl+S 导出PNG · 点预览里的字可改读音</span></div>
+      <textarea id="src" spellcheck="false" placeholder="在这里输入中文，例如：他长大了，银行的钱要省着用。"></textarea>
+    </div>
+    <div class="paper">
+      <div id="preview" class="preview"></div>
+    </div>
+  </section>
+</main>
+
+<div id="pop" class="pop" hidden></div>
+
+<script src="lib/pinyin-pro.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# 用户方案定制：放到 %APPDATA%\Rime\default.custom.yaml 后「重新部署」
+# 注意：下面挂词典要对应你实际用的方案名（默认全拼是 luna_pinyin / pinyin_simp）
+patch:
+  schema_list:
+    - schema: luna_pinyin          # 朙月拼音（全拼，带声调词库最全）
+    - schema: pinyin_simp          # 简体拼音
+  # 想在某个方案里用纠错词表，在该方案的 *.custom.yaml 里加：
+  #   patch:
+  #     "translator/dictionary": custom_phrase

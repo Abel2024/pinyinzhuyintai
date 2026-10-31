@@ -1,0 +1,16 @@
+# 小狼毫（Weasel）样式定制
+# 放到 %APPDATA%\Rime\weasel.custom.yaml，然后在托盘菜单点「重新部署」
+patch:
+  # 候选词后显示拼音提示：数字 = 至少显示几个字的拼音（建议 2~4）
+  "style/spelling_hints": 4
+  # 输入的拼音显示在输入处而不是候选窗
+  "style/inline_preedit": true
+  # 候选横排改竖排（拼音提示更清楚）
+  "style/horizontal": false
+  # 每页候选数
+  "menu/page_size": 7
+  # 字号（屏幕 DPI 高就调大）
+  "style/font_point": 14
+  "style/comment_font_point": 12
+  # 配色：apathy / aqua / dark_temple / luna / psionics / ink 等
+  "style/color_scheme": "apathy"
