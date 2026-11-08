@@ -25,6 +25,14 @@ button{font:inherit;font-size:13px;padding:7px 13px;border-radius:9px;cursor:poi
 button:hover{border-color:#c9bda9;background:#fdf9f1}
 button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
 button.primary:hover{background:#ad3226}
+#btnSpeak{border-color:#c0392b;color:var(--accent);font-weight:600;min-width:76px}
+#btnSpeak:hover{background:#fdeeeb}
+#btnSpeak.on{background:var(--accent);border-color:var(--accent);color:#fff}
+#btnSpeak.on:hover{background:#ad3226}
+#btnStopSpeak{min-width:76px}
+#btnStopSpeak[disabled]{opacity:.45;cursor:default}
+#btnStopSpeak[disabled]:hover{background:#fff;border-color:var(--line)}
+.vsep{width:1px;background:var(--line);margin:0 2px}
 
 main{flex:1;display:flex;min-height:0}
 .side{width:270px;flex:0 0 270px;background:var(--side);border-right:1px solid var(--line);
@@ -72,6 +80,11 @@ textarea:focus{border-color:#d8c9b0;box-shadow:0 0 0 3px rgba(192,57,43,.07)}
 .preview.markpoly .cell.forced .hz{
   text-decoration:none;background:linear-gradient(transparent 64%, rgba(65,132,90,.22) 64%)}
 .cell:hover{background:rgba(192,57,43,.06);border-radius:6px}
+.preview .cell.tts-on{background:rgba(192,57,43,.10);border-radius:7px}
+.preview .cell.tts-cur{background:var(--accent);border-radius:7px}
+.preview .cell.tts-cur .py,.preview .cell.tts-cur .hz{color:#fff !important}
+#ttsStat{margin-top:8px;color:var(--muted)}
+#selVoice{font-size:12px}
 
 .pop{position:fixed;z-index:50;width:268px;background:#fff;border:1px solid var(--line);
   border-radius:13px;box-shadow:0 18px 44px -14px rgba(60,40,10,.4);padding:12px}
