@@ -15,6 +15,9 @@
     <span class="brandtxt"><b>拼音注音台</b><small>输入汉字 → 上方自动生成带声调拼音</small></span>
   </div>
   <div class="actions">
+    <button id="btnSpeak" title="朗读正文（系统语音，离线）">▶ 朗读</button>
+    <button id="btnStopSpeak" title="停止朗读" disabled>■ 停止</button>
+    <span class="vsep"></span>
     <button id="btnPng" class="primary">导出 PNG</button>
     <button id="btnCopyImg">复制图片</button>
     <button id="btnHtml">导出 HTML</button>
@@ -58,6 +61,16 @@
     </div>
 
     <div class="group">
+      <div class="gtitle">朗读（系统语音 · 离线）</div>
+      <label class="row"><span>语速</span><em id="vRate">1.0×</em></label>
+      <input type="range" id="rngRate" min="0.5" max="2" step="0.1">
+      <label class="row" style="margin-top:10px"><span>声音</span></label>
+      <select id="selVoice"></select>
+      <label class="chk"><input type="checkbox" id="chkFollow" checked> 朗读时高亮跟读（自动滚动）</label>
+      <div class="stat" id="ttsStat">未朗读</div>
+    </div>
+
+    <div class="group">
       <div class="gtitle">声调</div>
       <div class="seg" id="segTone">
         <button data-tone="symbol" class="on">符号 ā</button>
@@ -94,7 +107,7 @@
 
   <section class="work">
     <div class="editor">
-      <div class="editor-head"><span>输入区（直接打字 / 粘贴稿子）</span><span class="hint">Ctrl+Enter 重排 · Ctrl+S 导出PNG · 点预览里的字可改读音</span></div>
+      <div class="editor-head"><span>输入区（直接打字 / 粘贴稿子）</span><span class="hint">Ctrl+Enter 重排 · Ctrl+S 导出PNG · Alt+R 朗读 · 点预览里的字可改读音</span></div>
       <textarea id="src" spellcheck="false" placeholder="在这里输入中文，例如：他长大了，银行的钱要省着用。"></textarea>
     </div>
     <div class="paper">
